@@ -1,11 +1,11 @@
 {
   "name": "angular-select-module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Eugene Popenko",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ywein/angular-select"
+    "url": "https://github.com/ywein/angular-select-module"
   },
   "scripts": {
     "start": "npm run clean && npm run build:aot",
