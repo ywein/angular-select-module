@@ -1,0 +1,14 @@
+# npmignore
+demo/
+.vscode/
+typings/
+node_modules/
+.editorconfig
+.gitignore
+.npmignore
+gulpfile.js
+postcss.config.js
+tsconfig.json
+tslint.json
+typings.json
+yarn.lock

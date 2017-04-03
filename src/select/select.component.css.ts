@@ -1,4 +1,4 @@
-.angular-select {
+export const styles = ` .angular-select {
   position: relative;
   box-sizing: border-box;
   font-size: 18px
@@ -12,12 +12,12 @@
   padding: 0 25px 0 5px;
   position: relative;
   cursor: pointer;
-  overflow: hidden;
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease
+  overflow: hidden
 }
-.angular-select__select-box:hover {
-  background: #cccccc
+@media (max-width: 767px) {
+  .angular-select__select-box {
+    display: none
+  }
 }
 .angular-select__select-box:after {
   content: ' ';
@@ -32,12 +32,13 @@
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%)
 }
-.angular-select__select-box--open {
-  padding: 0
-}
+.angular-select__select-box--open {}
 .angular-select__select-box--open:after {
   content: '';
   display: none
+}
+.angular-select__select-box--open.angular-select__select-box--with-search {
+  padding: 0
 }
 .angular-select__search {
   width: 100%;
@@ -89,5 +90,10 @@
   color: #ffffff
 }
 .angular-select select {
-  display: none;
+  display: none
 }
+@media (max-width: 767px) {
+  .angular-select select {
+    display: block
+  }
+  }`;

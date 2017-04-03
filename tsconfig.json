@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "module": "es6",
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -16,11 +17,5 @@
       "es2016",
       "dom"
     ]
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "files": [
-    "./src/select/select.module.ts"
-  ]
+  }
 }

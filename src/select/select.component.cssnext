@@ -12,9 +12,8 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    transition: background 0.3s ease;
-    &:hover {
-      background: #cccccc;
+    @media (max-width: 767px) {
+      display: none;
     }
     &:after {
       content: ' ';
@@ -29,11 +28,13 @@
       transform: translate(0, -50%);
     }
     &--open {
-      padding: 0;
       &:after {
         content: '';
         display: none;
       }
+    }
+    &--open.angular-select__select-box--with-search {
+      padding: 0;
     }
   }
   &__search {
@@ -88,4 +89,7 @@
 }
 .angular-select select {
   display: none;
+  @media (max-width: 767px) {
+    display: block;
+  }
 }
