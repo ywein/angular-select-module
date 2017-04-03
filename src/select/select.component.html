@@ -1,0 +1,20 @@
+<div class="angular-select">
+  <div (click)="toggleSelect($event)" 
+    [ngClass]="{'angular-select__select-box--selected': selected, 'angular-select__select-box--open': open}" 
+    class="angular-select__select-box">
+    <div (click)="clearSelected($event)" *ngIf="selected" class="angular-select__select-box-clear"></div>
+    <div *ngIf="!showSearch || !(showSearchThreshold < items.length) || !open">{{(selected ? selected : placeholder)}}</div>
+    <input #searchInput [(ngModel)]="search" (click)="searchClick($event)" class="angular-select__search" *ngIf="showSearch && (showSearchThreshold < items.length) && open" type="" name="" value="">
+  </div>
+  <ul [ngClass]="{'angular-select__options-list--open': open}" class="angular-select__options-list">
+    <li *ngFor="let item of items | selectPipe:search" [ngClass]="{'angular-select__option--selected': item.value === selected}" (click)="selectItem(item.value)" class="angular-select__option">
+      <div *ngIf="showHtml === false">{{item.text}}</div>
+      <div *ngIf="showHtml === true" [innerHTML]="item.text">
+
+      </div>
+    </li>
+  </ul>
+  <select [ngModel]="selected">
+    <option *ngFor="let item of items" [ngValue]="item.value">{{item.text}}</option>
+  </select>
+</div>
