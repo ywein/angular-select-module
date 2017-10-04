@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { styles } from './select.component.css';
-var SelectComponent = (function () {
+var SelectComponent = /** @class */ (function () {
     function SelectComponent() {
         this.open = false;
         this.showHtml = false;
@@ -55,50 +55,50 @@ var SelectComponent = (function () {
     SelectComponent.prototype.searchClick = function (e) {
         e.stopPropagation();
     };
+    __decorate([
+        Input(),
+        __metadata("design:type", Boolean)
+    ], SelectComponent.prototype, "open", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Boolean)
+    ], SelectComponent.prototype, "showHtml", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Boolean)
+    ], SelectComponent.prototype, "showSearch", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Number)
+    ], SelectComponent.prototype, "showSearchThreshold", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", String)
+    ], SelectComponent.prototype, "selected", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", String)
+    ], SelectComponent.prototype, "placeholder", void 0);
+    __decorate([
+        Input(),
+        __metadata("design:type", Array)
+    ], SelectComponent.prototype, "items", void 0);
+    __decorate([
+        Output(),
+        __metadata("design:type", EventEmitter)
+    ], SelectComponent.prototype, "valueSelected", void 0);
+    __decorate([
+        ViewChild('searchInput'),
+        __metadata("design:type", ElementRef)
+    ], SelectComponent.prototype, "searchInput", void 0);
+    SelectComponent = __decorate([
+        Component({
+            selector: 'angular-select',
+            styles: [styles],
+            template: "\n    <div class=\"angular-select\">\n      <div (click)=\"toggleSelect($event)\" \n        [ngClass]=\"{'angular-select__select-box--selected': selected, 'angular-select__select-box--open': open,'angular-select__select-box--with-search': showSearch && (showSearchThreshold < items.length)}\" \n        class=\"angular-select__select-box\">\n        <div (click)=\"clearSelected($event)\" *ngIf=\"selected\" class=\"angular-select__select-box-clear\"></div>\n        <div *ngIf=\"!showSearch || !(showSearchThreshold < items.length) || !open\">{{(selected ? selected : placeholder)}}</div>\n        <input #searchInput [(ngModel)]=\"search\" (click)=\"searchClick($event)\" class=\"angular-select__search\" *ngIf=\"showSearch && (showSearchThreshold < items.length) && open\" type=\"\" name=\"\" value=\"\">\n      </div>\n      <ul [ngClass]=\"{'angular-select__options-list--open': open}\" class=\"angular-select__options-list\">\n        <li *ngFor=\"let item of items | selectPipe:search\" [ngClass]=\"{'angular-select__option--selected': item.value === selected}\" (click)=\"selectItem(item.value)\" class=\"angular-select__option\">\n          <div *ngIf=\"showHtml === false\">{{item.text}}</div>\n          <div *ngIf=\"showHtml === true\" [innerHTML]=\"item.text\">\n\n          </div>\n        </li>\n      </ul>\n      <select [ngModel]=\"selected\" (ngModelChange)=\"selectItem($event)\">\n        <option *ngFor=\"let item of items\" [ngValue]=\"item.value\">{{item.text}}</option>\n      </select>\n    </div>\n  ",
+        }),
+        __metadata("design:paramtypes", [])
+    ], SelectComponent);
     return SelectComponent;
 }());
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], SelectComponent.prototype, "open", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], SelectComponent.prototype, "showHtml", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Boolean)
-], SelectComponent.prototype, "showSearch", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Number)
-], SelectComponent.prototype, "showSearchThreshold", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], SelectComponent.prototype, "selected", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", String)
-], SelectComponent.prototype, "placeholder", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Array)
-], SelectComponent.prototype, "items", void 0);
-__decorate([
-    Output(),
-    __metadata("design:type", EventEmitter)
-], SelectComponent.prototype, "valueSelected", void 0);
-__decorate([
-    ViewChild('searchInput'),
-    __metadata("design:type", ElementRef)
-], SelectComponent.prototype, "searchInput", void 0);
-SelectComponent = __decorate([
-    Component({
-        selector: 'angular-select',
-        styles: [styles],
-        template: "\n    <div class=\"angular-select\">\n      <div (click)=\"toggleSelect($event)\" \n        [ngClass]=\"{'angular-select__select-box--selected': selected, 'angular-select__select-box--open': open,'angular-select__select-box--with-search': showSearch && (showSearchThreshold < items.length)}\" \n        class=\"angular-select__select-box\">\n        <div (click)=\"clearSelected($event)\" *ngIf=\"selected\" class=\"angular-select__select-box-clear\"></div>\n        <div *ngIf=\"!showSearch || !(showSearchThreshold < items.length) || !open\">{{(selected ? selected : placeholder)}}</div>\n        <input #searchInput [(ngModel)]=\"search\" (click)=\"searchClick($event)\" class=\"angular-select__search\" *ngIf=\"showSearch && (showSearchThreshold < items.length) && open\" type=\"\" name=\"\" value=\"\">\n      </div>\n      <ul [ngClass]=\"{'angular-select__options-list--open': open}\" class=\"angular-select__options-list\">\n        <li *ngFor=\"let item of items | selectPipe:search\" [ngClass]=\"{'angular-select__option--selected': item.value === selected}\" (click)=\"selectItem(item.value)\" class=\"angular-select__option\">\n          <div *ngIf=\"showHtml === false\">{{item.text}}</div>\n          <div *ngIf=\"showHtml === true\" [innerHTML]=\"item.text\">\n\n          </div>\n        </li>\n      </ul>\n      <select [ngModel]=\"selected\" (ngModelChange)=\"selectItem($event)\">\n        <option *ngFor=\"let item of items\" [ngValue]=\"item.value\">{{item.text}}</option>\n      </select>\n    </div>\n  ",
-    }),
-    __metadata("design:paramtypes", [])
-], SelectComponent);
 export { SelectComponent };

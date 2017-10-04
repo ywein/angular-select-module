@@ -9,23 +9,23 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SelectPipe } from './select.pipe';
 import { SelectComponent } from './select.component';
-var SelectModule = (function () {
+var SelectModule = /** @class */ (function () {
     function SelectModule() {
     }
+    SelectModule = __decorate([
+        NgModule({
+            imports: [
+                CommonModule,
+                FormsModule
+            ],
+            declarations: [
+                SelectPipe,
+                SelectComponent,
+            ],
+            exports: [SelectComponent],
+            providers: [],
+        })
+    ], SelectModule);
     return SelectModule;
 }());
-SelectModule = __decorate([
-    NgModule({
-        imports: [
-            CommonModule,
-            FormsModule
-        ],
-        declarations: [
-            SelectPipe,
-            SelectComponent,
-        ],
-        exports: [SelectComponent],
-        providers: [],
-    })
-], SelectModule);
 export { SelectModule };

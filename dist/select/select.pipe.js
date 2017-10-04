@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Pipe } from '@angular/core';
-var SelectPipe = (function () {
+var SelectPipe = /** @class */ (function () {
     function SelectPipe() {
     }
     SelectPipe.prototype.transform = function (items, filter) {
@@ -16,11 +16,11 @@ var SelectPipe = (function () {
         filter = filter.toLowerCase();
         return items.filter(function (item) { return (item.text.toString().toLowerCase().indexOf(filter) !== -1); });
     };
+    SelectPipe = __decorate([
+        Pipe({
+            name: 'selectPipe'
+        })
+    ], SelectPipe);
     return SelectPipe;
 }());
-SelectPipe = __decorate([
-    Pipe({
-        name: 'selectPipe'
-    })
-], SelectPipe);
 export { SelectPipe };
