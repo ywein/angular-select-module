@@ -7,7 +7,7 @@ Select box replacement for Angular2+
 
 1) Install it:
   
-  `npm i ng2-select --save`
+  `npm i angular-select-module --save`
   
 2) Include it in your angular project:
 
