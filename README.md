@@ -48,7 +48,7 @@ Select box replacement for Angular2+
 
 To customize select box - simply override default styles in css. There is not many of them, it is deliberatly minimalistic by default. 
 
-### Dislaimer
+### Disclaimer
 
 Project is in very early stages. Expect heavy bugs and everything breaking(though it is very simple, so there is not really much to break). 
 
