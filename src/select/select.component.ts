@@ -13,7 +13,7 @@ import { styles } from './select.component.css';
         [ngClass]="{'angular-select__select-box--selected': selected, 'angular-select__select-box--open': open,'angular-select__select-box--with-search': showSearch && (showSearchThreshold < items.length)}" 
         class="angular-select__select-box">
         <div (click)="clearSelected($event)" *ngIf="selected" class="angular-select__select-box-clear"></div>
-        <div *ngIf="!showSearch || !(showSearchThreshold < items.length) || !open">{{(selected ? selected : placeholder)}}</div>
+        <div *ngIf="!showSearch || !(showSearchThreshold < items.length) || !open">{{(selected ? selectedText : placeholder)}}</div>
         <input #searchInput [(ngModel)]="search" (click)="searchClick($event)" class="angular-select__search" *ngIf="showSearch && (showSearchThreshold < items.length) && open" type="" name="" value="">
       </div>
       <ul [ngClass]="{'angular-select__options-list--open': open}" class="angular-select__options-list">
@@ -37,6 +37,7 @@ export class SelectComponent implements OnInit {
   @Input() public showHtml: boolean = false;
   @Input() public showSearch: boolean = true;
   @Input() public showSearchThreshold: number = 10;
+  @Input() public selectedText: string;
   @Input() public selected: string;
   @Input() public placeholder: string = '';
   @Input() public items: any[];
@@ -76,6 +77,10 @@ export class SelectComponent implements OnInit {
   }
 
   selectItem(value: string): void {
+    const selectedItem = this.items.find(item => item.value === value)
+    if (selectedItem) {
+      this.selectedText = selectedItem.text
+    }
     this.selected = value;
     this.closeSelect();
     this.valueSelected.emit(value);
